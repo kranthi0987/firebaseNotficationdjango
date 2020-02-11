@@ -18,7 +18,8 @@ class Notifcationapi(APIView):
         if(request.data):
             print(request.data)
             json_data = {'to': request.data['nameValuePairs']['to'],
-                         'notification': {'body': request.data['nameValuePairs']['data']['nameValuePairs']['body'], 'title': request.data['nameValuePairs']['data']['nameValuePairs']['title']}, }
+                         'notification': {'body': request.data['nameValuePairs']['notification']['nameValuePairs']['body'], 'title': request.data['nameValuePairs']['notification']['nameValuePairs']['title']},
+                         'data':{'groupName':request.data['nameValuePairs']['data']['nameValuePairs']['groupName'],'groupUuid':request.data['nameValuePairs']['data']['nameValuePairs']['groupUuid']}}
             print(json.dumps(json_data))
             jsondata = json.dumps(json_data)
             jsondataasbytes = jsondata.encode('UTF-8')
